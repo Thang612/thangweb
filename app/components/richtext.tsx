@@ -1,15 +1,15 @@
+// src/app/admin/blog/create/RichTextEditorClient.tsx
 'use client';
 
 import React, { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import Quill from 'quill';
-import 'quill/dist/quill.snow.css'; // Import Quill styles
+import 'quill/dist/quill.snow.css';
 
-// Define the ref type for the RichTextEditor component
 export type RichTextEditorHandle = {
   getContent: () => string;
 };
 
-const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
+const RichTextEditorClient = forwardRef<RichTextEditorHandle, {}>((_, ref) => {
   const editorRef = useRef<HTMLDivElement>(null);
   const quillRef = useRef<Quill | null>(null);
 
@@ -31,22 +31,16 @@ const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
     }
 
     return () => {
-      quillRef.current = null; // Cleanup to avoid memory leaks
+      quillRef.current = null;
     };
   }, []);
 
-  // Expose the getContent function to the parent component
   useImperativeHandle(ref, () => ({
-    getContent: () => {
-      if (quillRef.current) {
-        return quillRef.current.root.innerHTML; // Return the HTML content
-      }
-      return '';
-    },
+    getContent: () => quillRef.current?.root.innerHTML || '',
   }));
 
-  return <div ref={editorRef} style={{ height: '300px' }} />;
+  return <div ref={editorRef} className="border rounded p-2" style={{ height: 300 }} />;
 });
 
-RichTextEditor.displayName = 'RichTextEditor';
-export default RichTextEditor;
+RichTextEditorClient.displayName = 'RichTextEditorClient';
+export default RichTextEditorClient;

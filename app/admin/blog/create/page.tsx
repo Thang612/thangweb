@@ -1,5 +1,5 @@
 "use client"
-import RichTextEditor, { RichTextEditorHandle } from "@/app/components/richtext";
+import RichTextEditorClient, { RichTextEditorHandle } from "@/app/components/richtext";
 import Image from "next/image";
 import { useState, DragEvent, useRef } from "react";
 
@@ -155,7 +155,7 @@ export default function CreateBlog() {
                     {/* Content */}
                     <div>
                         <h2 className="font-bold mb-2 text-lg">Nội dung bài viết</h2>
-                        <RichTextEditor ref={editorRef}  />
+                        <RichTextEditorClient ref={editorRef}  />
                     </div>
                     <div>
                         <button onClick={createBlog} className="px-5 py-2.5 bg-[var(--secondary)] text-white rounded-2xl cursor-pointer hover:shadow ">Tạo blog</button>
