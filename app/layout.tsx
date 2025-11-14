@@ -2,18 +2,17 @@
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Link from "next/link";
+import { Goldman } from 'next/font/google';
 
-export const metadata = {
-  title: "MyBlog",
-  description: "Personal blog built with Next.js 13, TypeScript, and Supabase",
-};
+export const goldman = Goldman({subsets: ['vietnamese'], weight:["400","700"]});
+
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
 
-          <body>
+          <body >
             <Header />
             <main>{children}</main>
             <Footer />

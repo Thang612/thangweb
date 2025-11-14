@@ -9,6 +9,7 @@ import "@/style/home.css";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import ContactForm from "./contact/contactform";
+import { goldman } from "./layout";
 
 
 //Project
@@ -162,7 +163,7 @@ export default function Home() {
             />
           </div>
           <div className="">
-            <h2 className="px-5 py-2.5 bg-[var(--secondary)] inline-block mb-5 font-goldman font-bold text-[var(--background)]">About me</h2>
+            <h2 className={`${goldman.className} px-5 py-2.5 bg-[var(--secondary)] inline-block mb-5 font-bold text-[var(--background)]`}>About me</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie nisl eu sem tristique, sit amet convallis ex aliquam. Maecenas varius lectus hendrerit augue blandit, ut posuere erat aliquam. Praesent auctor tellus eget nisl blandit, at varius purus elementum.</p>
           </div>
         </div>
